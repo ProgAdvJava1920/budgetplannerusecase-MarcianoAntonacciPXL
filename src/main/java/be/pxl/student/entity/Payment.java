@@ -4,12 +4,14 @@ import java.util.Date;
 
 public class Payment {
 
+    private String counteracountIBAN;
     private Date date;
     private float amount;
     private String currency;
     private String detail;
 
-    public Payment(Date date, float amount, String currency, String detail) {
+    public Payment(String counteraccountIBAN, Date date, float amount, String currency, String detail) {
+        this.counteracountIBAN = counteraccountIBAN;
         this.date = date;
         this.amount = amount;
         this.currency = currency;
@@ -51,6 +53,7 @@ public class Payment {
     @Override
     public String toString() {
         return "{" +
+                "counteraccount IBAN=" + counteracountIBAN +
                 "date=" + date +
                 ", amount=" + amount +
                 ", currency='" + currency + '\'' +
