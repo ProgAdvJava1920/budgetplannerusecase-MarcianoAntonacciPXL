@@ -45,14 +45,14 @@ class BudgetPlannerMapperTest {
     }
 
     @Test
-    void itShouldMapLineToAccountObject() {
+    void itShouldMapLineToAccountObject() throws ParseException, BudgetPlannerException {
         Account expectedAccount = new Account("Jos", "BE69771770897312");
         Account lineToAccount = mapper.mapDataLineToAccount(testDataLine);
         assertEquals(expectedAccount, lineToAccount);
     }
 
     @Test
-    void ItShouldMapLineToPayment() throws ParseException {
+    void ItShouldMapLineToPayment() throws ParseException, BudgetPlannerException {
         Payment expectedPayment = new Payment(
                 "BE17795215960626",
                  mapper.convertToDate("Thu Feb 13 05:47:35 CET 2020"),
@@ -61,11 +61,13 @@ class BudgetPlannerMapperTest {
                 "Ut ut necessitatibus itaque ullam."
         );
 
+        Payment mappedPayment = mapper.mapItemsToPayment(testDataLine.split(","));
 
+        assertEquals(expectedPayment, mappedPayment);
     }
 
     @Test
-    void itShouldConvertDate() throws ParseException {
+    void itShouldConvertDate() throws ParseException, BudgetPlannerException {
         String testDate = "Thu Feb 13 05:47:35 CET 2020";
         Date date = mapper.convertToDate(testDate);
         String dateToString = mapper.convertDateToString(date);
