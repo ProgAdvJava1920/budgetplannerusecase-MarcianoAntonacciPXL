@@ -18,6 +18,14 @@ public class Payment {
         this.detail = detail;
     }
 
+    public String getCounteracountIBAN() {
+        return counteracountIBAN;
+    }
+
+    public void setCounteracountIBAN(String counteracountIBAN) {
+        this.counteracountIBAN = counteracountIBAN;
+    }
+
     public Date getDate() {
         return date;
     }
