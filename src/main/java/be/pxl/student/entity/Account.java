@@ -7,15 +7,30 @@ import java.util.stream.Collectors;
 
 public class Account {
 
+    private int id;
     private String IBAN;
     private String name;
     private List<Payment> payments = new ArrayList<>();
 
     public Account() {}
 
+    public Account(int id, String IBAN, String name) {
+        this.id = id;
+        this.name = name;
+        this.IBAN = IBAN;
+    }
+
     public Account(String name, String IBAN) {
         this.name = name;
         this.IBAN = IBAN;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getIBAN() { return IBAN; }
